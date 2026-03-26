@@ -201,6 +201,8 @@ footer{background:#060E16;padding:70px 60px;display:grid;grid-template-columns:1
 /* MOBILE */
 @media(max-width:768px){
   nav{padding:16px 24px;background:rgba(13,27,42,0.97)}
+  .hero-bg{background-image:linear-gradient(165deg,rgba(13,27,42,0.75) 0%,rgba(13,27,42,0.6) 50%,rgba(13,27,42,0.97) 100%),url('https://res.cloudinary.com/dueqxh9bo/image/upload/v1774316899/hero_jpg.jpg_rygt86.jpg');background-size:cover;background-position:center}
+  .hero-overlay{background:linear-gradient(to top,rgba(13,27,42,0.99) 0%,rgba(13,27,42,0.4) 100%)}
   nav.scrolled{padding:12px 24px}
   .nav-links,.nav-cta{display:none}
   .hero-content{padding:0 24px 70px}
@@ -216,6 +218,11 @@ footer{background:#060E16;padding:70px 60px;display:grid;grid-template-columns:1
   .process{padding:80px 24px}
   .steps{grid-template-columns:1fr 1fr}
   .step-arrow{display:none}
+  .hero-sub{font-size:14px;letter-spacing:0.04em;line-height:1.7}
+  .hero-sub-long{display:none}
+  .eyebrow{display:none}
+  .hero-sub-long{display:none !important}
+  .hero-sub-short{display:block !important}
   .gallery-header{padding:0 24px 44px}
   .gallery-grid{grid-template-columns:1fr 1fr;grid-template-rows:auto}
   .gal.tall{grid-row:span 1;height:240px}
@@ -242,9 +249,9 @@ footer{background:#060E16;padding:70px 60px;display:grid;grid-template-columns:1
     <li><a href="#process">Process</a></li>
     <li><a href="#portfolio">Portfolio</a></li>
     <li><a href="#gc">GC Partners</a></li>
-    <li><a href="#contact">Contact</a></li>
+    <li><a href="contact.html">Contact</a></li>
   </ul>
-  <a href="#contact" class="nav-cta">Start Your Project</a>
+  <a href="contact.html" class="nav-cta">Start Your Project</a>
 </nav>
 
 <!-- HERO -->
