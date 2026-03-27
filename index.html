@@ -25,7 +25,7 @@ a{text-decoration:none}
 img{display:block}
 
 /* NAV */
-nav{position:fixed;top:0;left:0;right:0;z-index:100;display:flex;align-items:center;justify-content:space-between;padding:20px 60px;transition:all 0.4s;background:rgba(13,27,42,0.0)}
+nav{position:fixed;top:0;left:0;right:0;z-index:100;display:flex;align-items:center;justify-content:space-between;padding:20px 60px;transition:all 0.4s;background:rgba(13,27,42,0.97);backdrop-filter:blur(14px);border-bottom:1px solid rgba(242,237,228,0.08)}
 nav.scrolled{background:rgba(13,27,42,0.97);backdrop-filter:blur(14px);padding:13px 60px;border-bottom:1px solid rgba(242,237,228,0.12)}
 .nav-logo img{height:50px;width:auto}
 .nav-links{display:flex;gap:40px;list-style:none}
@@ -93,7 +93,7 @@ nav.scrolled{background:rgba(13,27,42,0.97);backdrop-filter:blur(14px);padding:1
 .diff-card:hover{background:#112030}
 .diff-card::after{content:'';position:absolute;bottom:0;left:0;width:100%;height:2px;background:#F2EDE4;transform:scaleX(0);transform-origin:left;transition:transform 0.5s}
 .diff-card:hover::after{transform:scaleX(1)}
-.diff-card-num{font-family:'Cormorant Garamond',Georgia,serif;font-size:52px;font-weight:300;color:rgba(242,237,228,0.07);line-height:1;margin-bottom:8px}
+.diff-card-num{font-family:'Cormorant Garamond',Georgia,serif;font-size:52px;font-weight:300;color:rgba(242,237,228,0.18);line-height:1;margin-bottom:8px}
 .diff-card h4{font-family:'Cormorant Garamond',Georgia,serif;font-size:24px;font-weight:400;color:#FDFAF6;margin-bottom:16px}
 .diff-card p{font-size:12px;letter-spacing:0.04em;line-height:1.9;color:#9A9890}
 
@@ -108,7 +108,7 @@ nav.scrolled{background:rgba(13,27,42,0.97);backdrop-filter:blur(14px);padding:1
 .svc::before{content:'';position:absolute;bottom:0;left:0;width:100%;height:2px;background:#F2EDE4;transform:scaleX(0);transform-origin:left;transition:transform 0.5s ease}
 .svc:hover{background:#112030}
 .svc:hover::before{transform:scaleX(1)}
-.svc-num{font-family:'Cormorant Garamond',Georgia,serif;font-size:72px;font-weight:300;line-height:1;color:rgba(242,237,228,0.1);margin-bottom:-12px}
+.svc-num{font-family:'Cormorant Garamond',Georgia,serif;font-size:48px;font-weight:300;line-height:1.2;color:rgba(242,237,228,0.18);margin-bottom:12px;display:block}
 .svc h3{font-family:'Cormorant Garamond',Georgia,serif;font-size:30px;font-weight:400;margin-bottom:20px;color:#FDFAF6}
 .svc p{font-size:13px;letter-spacing:0.04em;line-height:2;color:#B0ADA6}
 .svc-tag{display:inline-block;margin-top:28px;font-size:9px;letter-spacing:0.28em;text-transform:uppercase;color:#B8A898;opacity:0.8}
@@ -122,8 +122,8 @@ nav.scrolled{background:rgba(13,27,42,0.97);backdrop-filter:blur(14px);padding:1
 .process h2 em{font-style:italic;color:#2A6080}
 .steps{display:grid;grid-template-columns:repeat(4,1fr);gap:1px;background:#DDD9D3}
 .step{background:#FDFAF6;padding:48px 38px;position:relative}
-.step-num{font-family:'Cormorant Garamond',Georgia,serif;font-size:15px;font-weight:500;letter-spacing:0.12em;color:#2A6080;margin-bottom:22px}
-.step h4{font-family:'Cormorant Garamond',Georgia,serif;font-size:26px;font-weight:400;margin-bottom:16px;color:#0D1B2A}
+.step-num{font-family:'Cormorant Garamond',Georgia,serif;font-size:18px;font-weight:500;letter-spacing:0.14em;color:#2A6080;margin-bottom:22px}
+.step h4{font-family:'Cormorant Garamond',Georgia,serif;font-size:30px;font-weight:400;margin-bottom:16px;color:#0D1B2A}
 .step p{font-size:13px;letter-spacing:0.03em;line-height:1.9;color:#5A5A52}
 .step-arrow{position:absolute;top:48px;right:-12px;width:24px;height:24px;background:#2A6080;clip-path:polygon(0 50%,60% 0,60% 35%,100% 35%,100% 65%,60% 65%,60% 100%);z-index:1}
 
@@ -352,11 +352,9 @@ footer{background:#060E16;padding:70px 60px;display:grid;grid-template-columns:1
 
 <!-- SERVICES -->
 <section class="services" id="services">
-  <div class="services-header reveal">
-    <div class="services-header-left">
-      <div class="sec-label">What We Build</div>
-      <h2>Full-scope<br><em>expertise.</em></h2>
-    </div>
+  <div class="diff-header reveal">
+    <div class="sec-label" style="justify-content:center">What We Build</div>
+    <h2>Full-scope <em style="color:#F2EDE4">expertise.</em></h2>
     <p>From consultation to completion, we listen at every step and deliver a bespoke backyard environment built to exceed your expectations.</p>
   </div>
   <div class="services-grid">
@@ -364,19 +362,19 @@ footer{background:#060E16;padding:70px 60px;display:grid;grid-template-columns:1
       <div class="svc-num">01</div>
       <h3>Custom Pool Design</h3>
       <p>Your backyard is a blank canvas. We listen to your vision, study your site and architecture, and design a custom poolscape that feels like it could only ever exist here &mdash; complete with 3D renderings and curated material selections.</p>
-      <span class="svc-tag">3D Renderings &middot; Site Analysis &middot; Material Curation</span>
+      
     </div>
     <div class="svc reveal d1">
       <div class="svc-num">02</div>
       <h3>Pool Construction</h3>
       <p>From excavation to first swim, our team brings your design to life using the finest materials and most skilled craftspeople in Arizona. Gunite, tile, coping, water features, fire features, automation, and full backyard buildouts.</p>
-      <span class="svc-tag">Gunite &middot; Fire &amp; Water Features &middot; Full Backyard</span>
+      
     </div>
     <div class="svc reveal d2">
       <div class="svc-num">03</div>
       <h3>Renovations &amp; Remodels</h3>
       <p>Successful remodels require a builder who understands not just aesthetics but the systems underneath. We evaluate everything and rebuild to a standard your home deserves.</p>
-      <span class="svc-tag">Resurfacing &middot; Equipment Upgrades &middot; Full Remodel</span>
+      
     </div>
   </div>
 </section>
@@ -384,7 +382,7 @@ footer{background:#060E16;padding:70px 60px;display:grid;grid-template-columns:1
 <!-- PROCESS -->
 <section class="process" id="process">
   <div class="process-header reveal">
-    <div class="sec-label blue">Our Process</div>
+    <div class="sec-label blue" style="justify-content:center">Our Process</div>
     <h2>Built for <em>precision</em><br>and peace of mind.</h2>
   </div>
   <div class="steps">
@@ -416,12 +414,10 @@ footer{background:#060E16;padding:70px 60px;display:grid;grid-template-columns:1
 
 <!-- GALLERY -->
 <section class="gallery" id="portfolio">
-  <div class="gallery-header reveal">
-    <div>
-      <div class="sec-label">Portfolio</div>
-      <h2>The work<br>speaks <em>clearly.</em></h2>
-    </div>
-    <a href="contact.html">Request Full Portfolio &rarr;</a>
+  <div class="diff-header reveal">
+    <div class="sec-label" style="justify-content:center">Portfolio</div>
+    <h2>The work speaks <em style="color:#F2EDE4">clearly.</em></h2>
+    <p><a href="contact.html" style="color:#B8A898;letter-spacing:0.28em;font-size:10px;text-transform:uppercase;border-bottom:1px solid rgba(184,168,152,0.4);padding-bottom:3px">Request Full Portfolio &rarr;</a></p>
   </div>
   <div class="gallery-grid">
     <div class="gal tall">
