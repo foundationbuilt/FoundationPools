@@ -208,6 +208,13 @@ footer{background:#060E16;padding:70px 60px;display:grid;grid-template-columns:1
 .mobile-menu a{font-size:13px;letter-spacing:0.3em;text-transform:uppercase;color:var(--white);font-weight:400}
 .mobile-menu a:hover{color:var(--warm)}
 .mobile-close{position:absolute;top:24px;right:24px;font-size:28px;color:var(--white);cursor:pointer;background:none;border:none;line-height:1}
+.mobile-dropdown{text-align:center}
+.mobile-dropdown-toggle{background:none;border:none;color:var(--white);font-size:13px;letter-spacing:0.3em;text-transform:uppercase;cursor:pointer;font-family:var(--fb);padding:0}
+.mobile-dropdown-toggle span{font-size:9px;transition:transform 0.3s;display:inline-block}
+.mobile-dropdown.open .mobile-dropdown-toggle span{transform:rotate(180deg)}
+.mobile-dropdown-menu{display:none;flex-direction:column;gap:16px;margin-top:16px}
+.mobile-dropdown.open .mobile-dropdown-menu{display:flex}
+.mobile-dropdown-menu a{font-size:12px;letter-spacing:0.22em;text-transform:uppercase;color:rgba(255,255,255,0.7)}
 
 @media(max-width:768px){
   .hamburger{display:flex}
@@ -278,7 +285,7 @@ footer{background:#060E16;padding:70px 60px;display:grid;grid-template-columns:1
     <li class="dropdown">
       <a href="#">Services</a>
       <div class="dropdown-menu">
-        <a href="scottsdale-pool-builder/index.html">Pool Construction</a>
+        <a href="scottsdale-pool-builder.html">Pool Construction</a>
       </div>
     </li>
     <li><a href="#portfolio">Portfolio</a></li>
@@ -294,8 +301,12 @@ footer{background:#060E16;padding:70px 60px;display:grid;grid-template-columns:1
   <button class="mobile-close" onclick="document.getElementById('mobileMenu').classList.remove('open')">&times;</button>
   <a href="index.html" onclick="document.getElementById('mobileMenu').classList.remove('open')">Home</a>
   <a href="index.html#about" onclick="document.getElementById('mobileMenu').classList.remove('open')">About</a>
-  <div style="font-size:9px;letter-spacing:0.35em;text-transform:uppercase;color:var(--warm);opacity:0.7;margin-bottom:-16px">Services</div>
-  <a href="scottsdale-pool-builder/index.html" onclick="document.getElementById('mobileMenu').classList.remove('open')" style="font-size:12px;padding-left:12px">Pool Construction</a>
+  <div class="mobile-dropdown">
+    <button class="mobile-dropdown-toggle" onclick="this.parentElement.classList.toggle('open')">Services <span>&#9660;</span></button>
+    <div class="mobile-dropdown-menu">
+      <a href="scottsdale-pool-builder.html" onclick="document.getElementById('mobileMenu').classList.remove('open')">Pool Construction</a>
+    </div>
+  </div>
   <a href="index.html#services" onclick="document.getElementById('mobileMenu').classList.remove('open')">Services</a>
   <a href="index.html#process" onclick="document.getElementById('mobileMenu').classList.remove('open')">Process</a>
   <a href="index.html#portfolio" onclick="document.getElementById('mobileMenu').classList.remove('open')">Portfolio</a>
