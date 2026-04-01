@@ -275,8 +275,12 @@ footer{background:#060E16;padding:70px 60px;display:grid;grid-template-columns:1
   <div class="nav-logo"><a href="index.html"><img src="images/logo.png" alt="Foundation Pools"></a></div>
   <ul class="nav-links">
     <li><a href="#about">About</a></li>
-    <li><a href="#services">Services</a></li>
-    <li><a href="#process">Process</a></li>
+    <li class="dropdown">
+      <a href="#">Services</a>
+      <div class="dropdown-menu">
+        <a href="scottsdale-pool-builder/index.html">Pool Construction</a>
+      </div>
+    </li>
     <li><a href="#portfolio">Portfolio</a></li>
     <li><a href="#gc">GC Partners</a></li>
     <li><a href="contact.html">Contact</a></li>
@@ -290,7 +294,8 @@ footer{background:#060E16;padding:70px 60px;display:grid;grid-template-columns:1
   <button class="mobile-close" onclick="document.getElementById('mobileMenu').classList.remove('open')">&times;</button>
   <a href="index.html" onclick="document.getElementById('mobileMenu').classList.remove('open')">Home</a>
   <a href="index.html#about" onclick="document.getElementById('mobileMenu').classList.remove('open')">About</a>
-  <a href="scottsdale-pool-builder/index.html" onclick="document.getElementById('mobileMenu').classList.remove('open')">Pool Construction</a>
+  <div style="font-size:9px;letter-spacing:0.35em;text-transform:uppercase;color:var(--warm);opacity:0.7;margin-bottom:-16px">Services</div>
+  <a href="scottsdale-pool-builder/index.html" onclick="document.getElementById('mobileMenu').classList.remove('open')" style="font-size:12px;padding-left:12px">Pool Construction</a>
   <a href="index.html#services" onclick="document.getElementById('mobileMenu').classList.remove('open')">Services</a>
   <a href="index.html#process" onclick="document.getElementById('mobileMenu').classList.remove('open')">Process</a>
   <a href="index.html#portfolio" onclick="document.getElementById('mobileMenu').classList.remove('open')">Portfolio</a>
