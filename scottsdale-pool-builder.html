@@ -100,10 +100,17 @@ nav{position:fixed;top:0;left:0;right:0;z-index:100;display:flex;align-items:cen
 .mobile-menu.open{display:flex}
 .mobile-menu a{font-size:13px;letter-spacing:0.3em;text-transform:uppercase;color:var(--white)}
 .mobile-close{position:absolute;top:24px;right:24px;font-size:28px;color:var(--white);cursor:pointer;background:none;border:none;line-height:1}
+.mobile-dropdown{text-align:center}
+.mobile-dropdown-toggle{background:none;border:none;color:var(--white);font-size:13px;letter-spacing:0.3em;text-transform:uppercase;cursor:pointer;font-family:var(--fb);padding:0}
+.mobile-dropdown-toggle span{font-size:9px;transition:transform 0.3s;display:inline-block}
+.mobile-dropdown.open .mobile-dropdown-toggle span{transform:rotate(180deg)}
+.mobile-dropdown-menu{display:none;flex-direction:column;gap:16px;margin-top:16px}
+.mobile-dropdown.open .mobile-dropdown-menu{display:flex}
+.mobile-dropdown-menu a{font-size:12px;letter-spacing:0.22em;text-transform:uppercase;color:rgba(255,255,255,0.7)}
 
 /* HERO */
 .hero{position:relative;height:90vh;min-height:600px;display:flex;align-items:flex-end;overflow:hidden;margin-top:80px}
-.hero-bg{position:absolute;inset:0;background-image:linear-gradient(165deg,rgba(13,27,42,0.45) 0%,rgba(13,27,42,0.1) 50%,rgba(13,27,42,0.92) 100%),url('https://res.cloudinary.com/dueqxh9bo/image/upload/v1774316899/hero_jpg.jpg_rygt86.jpg');background-size:cover;background-position:center}
+.hero-bg{position:absolute;inset:0;background-image:linear-gradient(165deg,rgba(13,27,42,0.45) 0%,rgba(13,27,42,0.1) 50%,rgba(13,27,42,0.92) 100%),url('https://res.cloudinary.com/dueqxh9bo/image/upload/v1775089618/gallery_6_jkpeeb.jpg');background-size:cover;background-position:center}
 .hero-overlay{position:absolute;inset:0;background:linear-gradient(to top,rgba(13,27,42,0.97) 0%,transparent 60%)}
 .hero-content{position:relative;z-index:2;padding:0 60px 80px;max-width:900px}
 .hero-eyebrow{font-size:10px;letter-spacing:0.4em;text-transform:uppercase;color:var(--warm);margin-bottom:20px;display:flex;align-items:center;gap:14px}
@@ -219,10 +226,16 @@ footer{background:#060E16;padding:60px;display:grid;grid-template-columns:1fr au
   nav{padding:14px 20px}
   .nav-links,.nav-cta{display:none}
   .hamburger{display:flex}
-  .hero{height:80vh;margin-top:70px}
-  .hero-content{padding:0 24px 60px}
-  .hero-actions{gap:16px}
+  .hero{height:auto;min-height:100vh;margin-top:70px}
+  .hero-content{padding:80px 24px 60px}
+  .hero-actions{gap:16px;flex-direction:column;align-items:flex-start}
+  .btn-primary{width:auto;text-align:center}
+  .hero h1{font-size:clamp(36px,8vw,60px)}
+  .hero-sub{font-size:13px}
   .intro,.why,.services,.process,.local,.faq,.cta-banner{padding:60px 24px}
+  .why-grid{margin:0 -24px}
+  .why{padding-left:0;padding-right:0}
+  .why h2{padding:0 24px}
   .why-grid{grid-template-columns:1fr 1fr}
   .services-grid{grid-template-columns:1fr}
   .steps{grid-template-columns:1fr 1fr}
@@ -234,6 +247,13 @@ footer{background:#060E16;padding:60px;display:grid;grid-template-columns:1fr au
   .footer-links{flex-direction:column;gap:24px}
   .cta-banner-actions{flex-direction:column;gap:16px}
 }
+
+.nav-links .dropdown{position:relative}
+.nav-links .dropdown>a::after{content:' ▾';font-size:8px;opacity:0.7}
+.dropdown-menu{display:none;position:absolute;top:calc(100% + 12px);left:0;background:rgba(13,27,42,0.99);backdrop-filter:blur(14px);border:1px solid rgba(242,237,228,0.1);min-width:190px;padding:8px 0;z-index:300}
+.nav-links .dropdown:hover .dropdown-menu{display:block}
+.dropdown-menu a{display:block;padding:13px 22px;font-size:10px;letter-spacing:0.22em;text-transform:uppercase;color:rgba(255,255,255,0.75);transition:color 0.2s,background 0.2s;white-space:nowrap}
+.dropdown-menu a:hover{color:var(--cream);background:rgba(255,255,255,0.05)}
 </style>
 </head>
 <body>
@@ -244,8 +264,14 @@ footer{background:#060E16;padding:60px;display:grid;grid-template-columns:1fr au
   <ul class="nav-links">
     <li><a href="index.html">Home</a></li>
     <li><a href="index.html#about">About</a></li>
-    <li><a href="scottsdale-pool-builder/index.html" class="active">Pool Construction</a></li>
+    <li class="dropdown">
+      <a href="#" style="color:var(--warm)">Services</a>
+      <div class="dropdown-menu">
+        <a href="scottsdale-pool-builder.html">Pool Construction</a>
+      </div>
+    </li>
     <li><a href="index.html#portfolio">Portfolio</a></li>
+    <li><a href="index.html#gc">GC Partners</a></li>
     <li><a href="contact.html">Contact</a></li>
   </ul>
   <a href="contact.html" class="nav-cta">Start Your Project</a>
@@ -257,7 +283,12 @@ footer{background:#060E16;padding:60px;display:grid;grid-template-columns:1fr au
   <button class="mobile-close" onclick="document.getElementById('mobileMenu').classList.remove('open')">&times;</button>
   <a href="index.html" onclick="document.getElementById('mobileMenu').classList.remove('open')">Home</a>
   <a href="index.html#about" onclick="document.getElementById('mobileMenu').classList.remove('open')">About</a>
-  <a href="scottsdale-pool-builder/index.html" onclick="document.getElementById('mobileMenu').classList.remove('open')">Pool Construction</a>
+  <div class="mobile-dropdown">
+    <button class="mobile-dropdown-toggle" onclick="this.parentElement.classList.toggle('open')">Services <span>&#9660;</span></button>
+    <div class="mobile-dropdown-menu">
+      <a href="scottsdale-pool-builder.html" onclick="document.getElementById('mobileMenu').classList.remove('open')">Pool Construction</a>
+    </div>
+  </div>
   <a href="index.html#portfolio" onclick="document.getElementById('mobileMenu').classList.remove('open')">Portfolio</a>
   <a href="contact.html" onclick="document.getElementById('mobileMenu').classList.remove('open')">Contact</a>
   <a href="contact.html" style="background:var(--cream);color:var(--deep);padding:14px 32px;font-weight:500" onclick="document.getElementById('mobileMenu').classList.remove('open')">Start Your Project</a>
